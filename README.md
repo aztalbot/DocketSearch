@@ -2,6 +2,9 @@
 
 > A search engine for State Coroporation Commission documents.
 
+## Live Demo
+> A live demo of this project can viewed [here](https://aztalbot.github.io/DocketSearch).
+
 ## Build Setup
 
 ``` bash
