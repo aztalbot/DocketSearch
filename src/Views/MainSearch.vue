@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import TypeAhead from "./TypeAhead.vue"
+import TypeAhead from "../Components/TypeAhead.vue"
 
 export default {
   name: 'MainSearch',

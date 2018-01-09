@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  var mostUsed = require('./typeAheadData.js');
+  var mostUsed = require('../data/typeAheadData.js');
 
   export default {
     name: 'TypeAhead',

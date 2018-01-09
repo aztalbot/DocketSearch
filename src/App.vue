@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import MainSearch from './MainSearch.vue'
-import MenuToggle from './MenuToggle.vue'
+import MainSearch from './Views/MainSearch.vue'
+import MenuToggle from './Components/MenuToggle.vue'
 
 export default {
   name: 'app',
