@@ -10,7 +10,7 @@
       <ul>
         <li @click="select()" v-for="(result, i) in results" :class="isActive(i)"
           @mouseover="setActive(i)" @mouseout="setActive(-1)">
-          <b>{{result.slice(0, currentTerm.length)}}</b><span>{{result.slice(currentTerm.length)}}</span>
+          <span>{{existingTerms}} {{result.slice(0, currentTerm.length)}}</span><strong>{{result.slice(currentTerm.length)}}</strong>
         </li>
       </ul>
     </div>
@@ -88,6 +88,11 @@
         else
           this.results = this.getResults(val);
       }
+    },
+    computed: {
+      existingTerms: function() {
+        return this.search.substring(0, this.search.lastIndexOf(' ', ))
+      }
     }
   }
 </script>
@@ -101,7 +106,7 @@
     max-width: 700px;
     margin: 0 auto;
   }
-  input {
+  .inputContainer input {
     border-radius: 5px;
     width: 100%;
     border: none;
@@ -110,13 +115,14 @@
     margin: 0 auto;
     padding: 4px 8px 4px 8px;
     outline: none;
-    -webkit-transition: box-shadow 0.2s ease-in-out;
-    -moz-transition: box-shadow 0.2s ease-in-out;
-    -o-transition: box-shadow 0.2s ease-in-out;
-    transition: box-shadow 0.2s ease-in-out;
     box-shadow: 0px 1.5px 2px 0.5px rgb(85, 85, 85);
+    transition: box-shadow 0.2s ease;
+    -webkit-transition: box-shadow 0.2s ease;
+    -moz-transition: box-shadow 0.2s ease;
+    -o-transition: box-shadow 0.2s ease;
   }
-  input:focus, input:hover {
+  .inputContainer input:focus,
+  .inputContainer input:hover {
     border-radius: 5px;
     box-shadow: 0px 2.25px 2.3px 1.5px rgba(85, 85, 85, 0.75);
   }
@@ -127,6 +133,7 @@
   .menuContainer {
     width: 100%;
     margin: 0 auto;
+    margin-top: -2.5px;
     background: white;
     border-radius: 0px 0px 4px 4px;
     box-shadow: 0px 2px 2.5px 0.5px rgb(85, 85, 85);
