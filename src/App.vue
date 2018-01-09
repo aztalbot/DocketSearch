@@ -1,12 +1,11 @@
 <template>
   <div id="app">
-    <mode-menu></mode-menu>
-    <main-search></main-search>
+    <mode-menu/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import MainSearch from './Views/MainSearch.vue'
 import MenuToggle from './Components/MenuToggle.vue'
 
 export default {
@@ -16,7 +15,6 @@ export default {
     }
   },
   components: {
-    'main-search': MainSearch,
     'mode-menu': MenuToggle
   }
 }
