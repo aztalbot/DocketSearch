@@ -4,7 +4,7 @@
       type="text" name="search-input" v-model="search" :placeholder="defaultText" :class="hasDropDown()"
       @keydown.up.prevent="up()" @keydown.enter.prevent="select()"
       @keydown.down.prevent="down()" @keydown.esc="escapeTypeAhead()"
-      @blur="escapeTypeAhead()" autofocus>
+      @blur="escapeTypeAhead()" ref="typeaheadInput" autofocus>
     <div class="menuContainer" v-if="results.length > 0"
       @mouseover="typeAheadFocus(true)" @mouseout="typeAheadFocus(false)">
       <ul>
@@ -31,7 +31,7 @@
         typeAheadActive: false
       }
     },
-    props: ['defaultText'],
+    props: ['defaultText', 'searchedText'],
     methods: {
       getResults(val) {
         var lastTerm = val.split(' ').slice(-1)[0];
@@ -45,8 +45,9 @@
       select() {
         if(this.activeItem > -1) {
           this.search += this.getActiveItem();
+          this.$refs.typeaheadInput.focus();
         } else {
-          alert("Form would be submitted!");
+          this.$root.runSearch(this.search);
         }
         this.typeAhead = false;
         this.activeItem = -1;
@@ -79,6 +80,11 @@
       },
       hasDropDown() {
         return (this.results.length == 0) ? "" : "has-dropdown";
+      },
+      initialSearch() {
+        if(this.searchedText && this.searchedText.length > 0) {
+          this.search = this.searchedText;
+        }
       }
     },
     watch: {
@@ -93,6 +99,9 @@
       existingTerms: function() {
         return this.search.substring(0, this.search.lastIndexOf(' ', ))
       }
+    },
+    mounted () {
+      this.initialSearch();
     }
   }
 </script>
@@ -104,7 +113,7 @@
     flex-direction: column;
     width: 80%;
     max-width: 700px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
   }
   .inputContainer input {
     border-radius: 5px;
