@@ -8,7 +8,7 @@
     <div class="menuContainer" v-if="results.length > 0"
       @mouseover="typeAheadFocus(true)" @mouseout="typeAheadFocus(false)">
       <ul>
-        <li @click="select()" v-for="(result, i) in results" :class="isActive(i)"
+        <li @click="select()" v-for="(result, i) in results" :class="isActive(i)" :key="result.id"
           @mouseover="setActive(i)" @mouseout="setActive(-1)">
           <span>{{existingTerms}} {{result.slice(0, currentTerm.length)}}</span><strong>{{result.slice(currentTerm.length)}}</strong>
         </li>

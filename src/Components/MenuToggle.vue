@@ -2,18 +2,18 @@
   <div class="flex-container">
     <div @click="toggleMenu" class="menu-toggle">
       <div class="flex-row">
-        <div v-for="n in 3" :class="styleSquare(true, n)"></div>
+        <div v-for="n in 3" :class="styleSquare(true, n)" :key="n.id"></div>
       </div>
       <div class="flex-row">
-        <div v-for="n in 3" :class="styleSquare(false, n)"></div>
+        <div v-for="n in 3" :class="styleSquare(false, n)" :key="n.id"></div>
       </div>
       <div class="flex-row">
-        <div v-for="n in 3" :class="styleSquare(true, n)"></div>
+        <div v-for="n in 3" :class="styleSquare(true, n)" :key="n.id"></div>
       </div>
     </div>
     <transition name="unravel">
       <div v-if="this.toggle" class="mode-menu">
-        <div class="option" v-for="n in 5">
+        <div class="option" v-for="n in 5" :key="n.id">
           Option {{ n }}
         </div>
       </div>
