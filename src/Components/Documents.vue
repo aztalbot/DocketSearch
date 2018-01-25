@@ -1,7 +1,8 @@
 <template>
   <div class='doc-flex'>
-    <h5 class="title doc-description">{{ doc.Document_Name.slice(doc.Document_Name.indexOf(' - ') + 3) }}</h5>
-    <h6 class="title doc-party"><em>{{ doc.Document_Name.slice(0, doc.Document_Name.indexOf(' - ')) }}</em></h6>
+    <h5 class="title doc-description">{{ description }}</h5>
+    <h6 class="title doc-party"><em>{{ party }}</em></h6>
+    <div class="date">Filed: {{ date }}</div>
   </div>
 </template>
 
@@ -9,10 +10,22 @@
 
 export default {
   name: 'Documents',
-  data() {
-    return {}
-  },
-  props: ['doc']
+  props: ['doc'],
+  computed: {
+    date: function() {
+      let full_date = this.doc.Date_Filed.slice(0, 10);
+      let year = full_date.slice(0, 4);
+      let month = full_date.slice(5, 7);
+      let day = full_date.slice(8);
+      return [month, day, year].join('/');
+    },
+    party: function() {
+      return this.doc.Document_Name.slice(0, this.doc.Document_Name.indexOf(' - '));
+    },
+    description: function() {
+      return this.doc.Document_Name.slice(this.doc.Document_Name.indexOf(' - ') + 3);
+    }
+  }
 }
 </script>
 
@@ -21,16 +34,25 @@ export default {
 
   .doc-flex
     @extend %flex-col
-    width: 100%
-    height: 55px
+    @extend %full-wdth-hght
+    @extend %rounded
     margin-top: 5px
     margin-bottom: 10px
     text-align: left
-    padding-left: 5px
-    padding-right: 5px
+    padding: 5px 5px 5px 5px
+    box-shadow: $resting-shadow
   
   .title
-    padding-top: 2.5px;
-    padding-bottom: 2.5px;
+    padding-top: 2.5px
+    padding-bottom: 2.5px
     margin: 0;
+  
+  .doc-description
+    font-size: $item-title
+
+  .doc-party
+    font-size: $item-head
+
+  .date
+    font-size: $item-text
 </style>

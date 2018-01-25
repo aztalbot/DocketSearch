@@ -49,7 +49,6 @@ export default {
   .sub-page-main
     margin-top: 50px
     padding-top: 10px
-    height: 100vh
 
   .nav-bar
     box-shadow: $resting-shadow
@@ -60,5 +59,6 @@ export default {
     width: 80%
     padding-left: 15px
     padding-right: 5px
+    padding-top: 10px
 
 </style>
