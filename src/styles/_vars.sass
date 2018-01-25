@@ -1,0 +1,41 @@
+// ----------------
+// ** VARIABLES **
+// ----------------
+$resting-shadow: 0px 0.5px 2px 0.5px rgb(85, 85, 85)
+$font-stack: 'Avenir', Helvetica, Arial, sans-serif
+$page-title: 36pt
+
+// Color Variables
+$panes-grey: #2c3e50
+$purple: #4A148C
+
+
+// -----------------------
+// ** INHERITED CLASSES **
+// -----------------------
+%flex-col
+    display: flex
+    flex-direction: column
+
+%no-marg-padd
+    margin: 0
+    padding: 0
+
+%full-wdth-hght
+    width: 100%
+    height: 100%
+
+
+// -------------
+// ** MIX-INS **
+// -------------
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
+=abs-pos($top, $right)
+    top: $top
+    right: $right
+    position: absolute

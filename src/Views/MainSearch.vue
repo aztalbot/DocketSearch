@@ -27,27 +27,25 @@ export default {
 }
 </script>
 
-<style scoped>
-  .search-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    margin-top: 30vh;
-  }
-  .search-container h2 {
-    width: 100%;
-    font-size: 36pt;
-    padding: 0 0 5px 0;
-    margin: 0;
-    color: #4A148C;
-  }
-  .search-input {
-    margin: 0 auto;
-  }
-  .menu {
-    top: 25px;
-    right: 50px;
-    position: absolute;
-  }
+<style lang="sass" scoped>
+  @import "../styles/_vars.sass"
+
+  .search-container
+    @extend %full-wdth-hght
+    @extend %flex-col
+    margin-top: 30vh
+  
+  .search-container h2
+    font-size: $page-title
+    color: $purple
+    width: 100%
+    padding: 0 0 5px 0
+    margin: 0
+  
+  .search-input
+    margin: 0 auto
+  
+  .menu
+    +abs-pos(25, 50)
+  
 </style>
