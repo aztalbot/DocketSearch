@@ -36,7 +36,10 @@ export default {
     margin-top: 30vh
   
   .search-container h2
+    font-family: $title-font
     font-size: $page-title
+    font-weight: 900
+    font-style: normal
     color: $purple
     width: 100%
     padding: 0 0 5px 0
@@ -46,6 +49,6 @@ export default {
     margin: 0 auto
   
   .menu
-    +abs-pos(25, 50)
+    +abs-pos(25px, 50px)
   
 </style>

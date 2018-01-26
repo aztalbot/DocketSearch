@@ -106,63 +106,62 @@
   }
 </script>
 
-<style scoped>
-  .inputContainer {
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    max-width: 700px;
-    /* margin: 0 auto; */
-  }
-  .inputContainer input {
-    border-radius: 5px;
-    width: 100%;
-    border: none;
-    height: 35px;
-    font-size: 15pt;
-    margin: 0 auto;
-    padding: 4px 8px 4px 8px;
-    outline: none;
-    box-shadow: 0px 1.5px 2px 0.5px rgb(85, 85, 85);
-    transition: box-shadow 0.2s ease;
-    -webkit-transition: box-shadow 0.2s ease;
-    -moz-transition: box-shadow 0.2s ease;
-    -o-transition: box-shadow 0.2s ease;
-  }
+<style lang="sass" scoped>
+  @import "../styles/_vars.sass"
+
+  .inputContainer 
+    display: -webkit-flex
+    display: flex
+    flex-direction: column
+    width: 80%
+    max-width: 700px
+    /* margin: 0 auto */
+  
+  .inputContainer input 
+    @extend %rounded
+    width: 100%
+    border: none
+    height: 35px
+    font-size: $item-focus
+    margin: 0 auto
+    padding: $text-med-pad
+    outline: none
+    box-shadow: $resting-shadow
+    +transition(box-shadow, 0.3s, ease)
+  
   .inputContainer input:focus,
-  .inputContainer input:hover {
-    border-radius: 5px;
-    box-shadow: 0px 2.25px 2.3px 1.5px rgba(85, 85, 85, 0.75);
-  }
-  .has-dropdown, .has-dropdown:hover, .has-dropdown:focus {
-    border-radius: 5px 5px 0px 0px;
-    box-shadow: 0px 0.5px 2px 0.5px rgb(85, 85, 85);
-  }
-  .menuContainer {
-    width: 100%;
-    margin: 0 auto;
-    margin-top: -2.5px;
-    background: white;
-    border-radius: 0px 0px 4px 4px;
-    box-shadow: 0px 2px 2.5px 0.5px rgb(85, 85, 85);
-    border-top: rgb(170, 170, 170) 1px solid;
-    font-size: 13pt;
-    padding: 4px 8px 4px 8px;
-  }
-  ul {
-    width: 100%;
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0;
-  }
-  li {
-    text-align: left;
-    padding: 2px 4px 2px 4px;
-    cursor: pointer;
-  }
-  .active {
-    background: #EEEEEE;
-    border-radius: 4px;
-  }
+  .inputContainer input:hover 
+    @extend %rounded
+    box-shadow: $active-shadow
+  
+  .has-dropdown, .has-dropdown:hover, .has-dropdown:focus 
+    @extend %top-rounded
+    box-shadow: $resting-shadow
+  
+  .menuContainer 
+    @extend %bottom-rounded
+    width: 100%
+    margin: 0 auto
+    margin-top: -3px
+    background: white
+    box-shadow: $alt-active-shadow
+    border-top: $light-grey 1px solid
+    font-size: $item-focus
+    padding: $text-med-pad
+  
+  ul 
+    width: 100%
+    list-style-type: none
+    margin: 0 auto
+    padding: 0
+  
+  li 
+    text-align: left
+    padding: $text-min-pad
+    cursor: pointer
+  
+  .active 
+    background: #EEEEEE
+    border-radius: 4px
+  
 </style>

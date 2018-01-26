@@ -1,17 +1,34 @@
+// --------------
+// ** IMPORTS **
+// --------------
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro')
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates')
+
 // ----------------
 // ** VARIABLES **
 // ----------------
 $resting-shadow: 0px 0.5px 2px 0.5px rgb(85, 85, 85)
-$font-stack: 'Avenir', Helvetica, Arial, sans-serif
+$active-shadow: 0px 2.25px 2.3px 1.5px rgba(85, 85, 85, 0.75)
+$alt-active-shadow: 0px 2px 2.5px 0.5px rgb(85, 85, 85)
+
+$font-stack: 'Source Sans Pro', 'Avenir', Helvetica, Arial, sans-serif
+$title-font: 'Montserrat Alternates', sans-serif
 $page-title: 36pt
+$page-head: 16pt
+$item-focus: 15pt
 $item-title: 13pt
 $item-head: 12pt
 $item-text: 11pt
 
 // Color Variables
 $panes-grey: #2c3e50
+$light-panes-grey: #ECEFF1
+$light-grey: rgb(170, 170, 170)
 $purple: #4A148C
 
+// Layout
+$text-med-pad: 4px 8px 4px 8px
+$text-min-pad: 2px 4px 2px 4px
 
 // -----------------------
 // ** INHERITED CLASSES **
@@ -19,6 +36,10 @@ $purple: #4A148C
 %flex-col
     display: flex
     flex-direction: column
+
+%flex-row
+    display: flex
+    flex-direction: row
 
 %no-marg-padd
     margin: 0
@@ -30,6 +51,12 @@ $purple: #4A148C
 
 %rounded
     border-radius: 5px;
+
+%top-rounded
+    border-radius: 5px 5px 0px 0px
+
+%bottom-rounded
+    border-radius: 0px 0px 4px 4px
 
 
 // -------------
@@ -45,3 +72,9 @@ $purple: #4A148C
     top: $top
     right: $right
     position: absolute
+
+=transition($attr, $time, $func)
+    transition: $attr $time $func
+    -webkit-transition: $attr $time $func
+    -moz-transition: $attr $time $func
+    -o-transition: $attr $time $func

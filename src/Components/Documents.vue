@@ -39,8 +39,13 @@ export default {
     margin-top: 5px
     margin-bottom: 10px
     text-align: left
-    padding: 5px 5px 5px 5px
+    padding: 15px 15px 15px 15px
     box-shadow: $resting-shadow
+    +transition(all, 0.15s, ease)
+  
+  .doc-flex:hover
+    transform: scale(1.005)
+    box-shadow: $active-shadow
   
   .title
     padding-top: 2.5px
@@ -49,9 +54,11 @@ export default {
   
   .doc-description
     font-size: $item-title
+    color: $purple
 
   .doc-party
-    font-size: $item-head
+    font-size: $item-text
+    padding-bottom: 5px
 
   .date
     font-size: $item-text
